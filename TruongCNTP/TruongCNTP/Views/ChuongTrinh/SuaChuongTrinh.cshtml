@@ -1,0 +1,39 @@
+﻿@model TruongCNTP.Models.CHUONGTRINH
+@{
+    ViewBag.Title = "Sửa thông tin chương trình";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">SỬA CHI TIẾT CHƯƠNG TRÌNH</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.MaCT)
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã chương trình: </td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaCT</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên chương trình:</td>
+            <td style="text-align:left">
+                @*@Html.EditorFor(m=>m.TENTL)
+                @Html.ValidationMessageFor(m=>m.TENTL)*@
+                @Html.TextBoxFor(m=>m.TenCT)@ViewData["Loi1"]
+            </td>
+        </tr>
+        
+        <td>
+            <button type="submit">Lưu</button>
+            <button>@Html.ActionLink("Trở về","Index","ChuongTrinh")</button>
+        </td>
+        
+</table>
+}
+
+

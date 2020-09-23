@@ -1,0 +1,31 @@
+﻿@using TruongCNTP.Models;
+@model IEnumerable<TruongCNTP.Models.MONHOC>
+@{
+    ViewBag.Title = "Quản lý môn học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">QUẢN LÝ MÔN HỌC</h2>
+<br />
+<table class="table" border="1" align="center">
+    <tr>
+        <th style="width:120px">Tên môn học</th>
+        <th style="width:100px">Mã môn học</th>
+        <th style="width:200px">Chọn chức năng</th>
+    </tr>
+    @foreach(var item in Model){
+    <tr>
+        <td>@Html.DisplayFor(m=>item.TenMH)</td>
+        <td>@Html.DisplayFor(m=>item.MaMH)</td>
+        <td>
+            <button>@Html.ActionLink("Sửa", "SuaMonHoc", new { id = item.MaMH })</button>
+            <button>@Html.ActionLink("Chi tiết", "ChiTietMonHoc", new { id=item.MaMH})</button>
+            <button>@Html.ActionLink("Xóa", "XoaMonHoc", new { id=item.MaMH})</button>
+        </td>
+    </tr>
+    }
+</table>
+<button>@Html.ActionLink("Tạo mới","ThemMonHoc")</button><br /><br />
+

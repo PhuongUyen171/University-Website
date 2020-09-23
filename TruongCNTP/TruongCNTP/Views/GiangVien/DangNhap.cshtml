@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/layoutGiangVien.cshtml";
+}
+
+<link href="../../Content/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6"><img src="../../Content/Image/thongBao.jpg" width="100%" height="300px" /></div>
+        <div class="col-lg-6" style ="background-image:url('../../Content/Image/nen.jpg')">
+            @*<img src="../../Content/Image/nen.jpg" width="100%" height="300px" />*@
+            <div align="center">
+                @using (Html.BeginForm()){
+                    @Html.ValidationSummary(true)
+                <form>
+                    <h3 style="margin-top:40px;font-size:20px;color:white;margin-bottom:20px">GIẢNG VIÊN ĐĂNG NHẬP</h3>
+                    <input type="text" name="tendn" placeholder="Tên đăng nhập" style="margin-bottom:20px;width:250px;height:40px"/><br />
+                    <input type="password" name="pass" placeholder="Mật khẩu"  style="margin-bottom:20px;width:250px;height:40px"/><br />
+                    <button class="btn-secondary" style="margin-bottom:0px;text-align:center;height:40px;width:250px">ĐĂNG NHẬP</button>
+                    <br />@ViewData["Loi1"]
+                    <br />@ViewData["Loi2"]
+                    <br />@ViewBag.Thongbao
+                </form>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

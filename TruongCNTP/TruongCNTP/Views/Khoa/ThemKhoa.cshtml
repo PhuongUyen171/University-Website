@@ -1,0 +1,31 @@
+﻿@model TruongCNTP.Models.KHOA
+@{
+    ViewBag.Title = "Tạo mới khoa";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">THÊM MỚI KHOA</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <table class="table" border="0" align="center" style="text-align:left">
+        <tr>
+            <td style="font-weight:bold">Tên khoa:</td>
+            <td style="text-align:left">@Html.TextBox("tenKhoa")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mã khoa:</td>
+            <td style="text-align:left">@Html.TextBox("maKhoa")</td>@ViewData["Loi2"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Năm thành lập:</td>
+            <td style="text-align:left">@Html.TextBox("nam")</td>@ViewData["Loi3"]
+        </tr>
+    </table>
+    <button type="submit">Tạo mới</button>
+    <button>@Html.ActionLink("Trở về","Index","Khoa")</button>
+}
+
+
+
+

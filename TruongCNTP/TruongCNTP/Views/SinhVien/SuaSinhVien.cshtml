@@ -1,0 +1,67 @@
+﻿@model TruongCNTP.Models.SINHVIEN
+@{
+    ViewBag.Title = "Sửa thông tin sinh viên";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">SỬA THÔNG TIN SINH VIÊN</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.MaSV)
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã SV: </td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaSV</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên SV:</td>
+            <td style="text-align:left">
+                @Html.TextBoxFor(m=>m.TenSV)@ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Năm sinh:</td>
+            <td style="text-align:left">
+                @Html.TextBoxFor(m=>m.NamSinh)@ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Email:</td>
+            <td style="text-align:left">
+                @Html.TextBoxFor(m=>m.Email)@ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Địa chỉ:</td>
+            <td style="text-align:left">
+                @Html.TextBoxFor(m=>m.DiaChi)@ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">SĐT:</td>
+            <td style="text-align:left">
+                @Html.TextBoxFor(m=>m.SDT)@ViewData["Loi2"]
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã lớp:</td>
+            <td style="text-align:left">
+                @Html.DropDownList("MaLop")@ViewData["Loi2"]
+            </td>
+        </tr>
+        <td>
+            <button type="submit">Lưu</button>
+            <button>@Html.ActionLink("Trở về","Index","Khoa")</button>
+        </td>
+        
+</table>
+}
+
+

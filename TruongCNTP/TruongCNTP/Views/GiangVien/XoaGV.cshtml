@@ -1,0 +1,29 @@
+﻿@model TruongCNTP.Models.GIAOVIEN
+@{
+    ViewBag.Title = "Xóa thông tin chi tiết giáo viên";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">XÓA THÔNG TIN CHI TIẾT SINH VIÊN</h2>
+
+<fieldset>
+    <legend><font color="green">Chắc chắn xóa chưa?<br />Hãy đảm bảo rằng khoa được xóa đang rỗng!</font></legend>
+    <div class="display-label">Mã GV: @Model.MaGV</div>
+    <div class="display-label">Tên GV: @Model.TenGV</div>
+    <div class="display-label">Mã môn học: @Model.MaMH</div>
+    <div class="display-label">Giới tính: Nam </div>
+    <div class="display-label">Ngày sinh: 25/02/1976</div>
+    <div class="display-label">Địa chỉ: 817 Hồng Lạc</div>
+    <div class="display-label">Số CMND: 025857829</div>
+    <div class="display-label">Nơi cấp: TP.HCM</div>
+    <div class="display-label">Hệ số lương: 2</div>
+    <div class="display-label">Gmail: gvhufi@gmail.com</div>
+    <div class="display-label">Quê quán: Thừa Thiên Huế</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <button type="submit">Xóa SV</button>
+    <button>@Html.ActionLink("Trở về","GiaoVien","GiangVien")</button>
+}

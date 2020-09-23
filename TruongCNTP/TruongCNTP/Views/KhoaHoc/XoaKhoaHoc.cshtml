@@ -1,0 +1,22 @@
+﻿@model TruongCNTP.Models.KHOAHOC
+@{
+    ViewBag.Title = "Xóa thông tin khóa học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">XÓA THÔNG TIN CHI TIẾT KHÓA HỌC</h2>
+
+<fieldset>
+    <legend><font color="green">Chắc chắn xóa chưa?<br />Hãy đảm bảo rằng chương trình được xóa đang rỗng!</font></legend>
+    <div class="display-label">Mã khóa học: @Model.MaKhoaHoc</div>
+    <div class="display-label">Năm bắt đầu: @Model.NamBatDau</div>
+    <div class="display-label">Năm kết thúc: @Model.NamKetThuc</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <button type="submit">Xóa khóa học này</button>
+    <button>@Html.ActionLink("Trở về","Index","KhoaHoc")</button>
+}
+

@@ -1,0 +1,20 @@
+﻿@model TruongCNTP.Models.MONHOC
+@{
+    ViewBag.Title = "Xóa chi tiết môn học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">XÓA THÔNG TIN CHI TIẾT MÔN HỌC</h2>
+
+<fieldset>
+    <legend><font color="green">Chắc chắn xóa chưa?<br />Hãy đảm bảo rằng môn học được xóa đang rỗng!</font></legend>
+    <div class="display-label">Mã môn: @Model.MaMH</div>
+    <div class="display-label">Tên môn: @Model.TenMH</div>
+    <div class="display-label">Mã khoa: @Model.MaKhoa</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <button type="submit">Xóa môn học này</button>
+    <button>@Html.ActionLink("Trở về","Index","MonHoc")</button>
+}

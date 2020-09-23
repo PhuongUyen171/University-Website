@@ -1,0 +1,44 @@
+﻿@model TruongCNTP.Models.KHOAHOC
+@{
+    ViewBag.Title = "Sửa thông tin khóa học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">SỬA CHI TIẾT KHÓA HỌC</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.MaKhoaHoc)
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã khóa học: </td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaKhoaHoc</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Năm bắt đầu:</td>
+            <td style="text-align:left">
+                @*@Html.EditorFor(m=>m.TENTL)
+                @Html.ValidationMessageFor(m=>m.TENTL)*@
+                @Html.TextBoxFor(m=>m.NamBatDau)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Năm kết thúc:</td>
+            <td style="text-align:left">
+                @*@Html.EditorFor(m=>m.TENTL)
+                @Html.ValidationMessageFor(m=>m.TENTL)*@
+                @Html.TextBoxFor(m=>m.NamKetThuc)
+            </td>
+        </tr>
+        <td>
+            <button type="submit">Lưu</button>
+            <button>@Html.ActionLink("Trở về","Index","KhoaHoc")</button>
+        </td>
+        
+</table>
+}
+

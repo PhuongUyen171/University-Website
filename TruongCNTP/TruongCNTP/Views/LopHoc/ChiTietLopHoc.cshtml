@@ -1,0 +1,41 @@
+﻿@model TruongCNTP.Models.LOP
+@{
+    ViewBag.Title = "Thông tin chi tiết lớp học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">THÔNG TIN CHI TIẾT LỚP HỌC</h2>
+<br />
+<table class="table" border="0" align="center" style="text-align:left">
+    <tr>
+        <td style="font-weight:bold">Mã lớp học:</td>
+        <td style="text-align:left">@Model.MaLop</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Tên lớp học:</td>
+        <td style="text-align:left">@Model.TenLop</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Mã chương trình:</td>
+        <td style="text-align:left">@Model.MaCT</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Mã khoa:</td>
+        <td style="text-align:left">@Model.MaKhoa</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Số thứ tự:</td>
+        <td style="text-align:left">@Model.STT</td>
+    </tr>
+
+</table>
+<button>@Html.ActionLink("Sửa", "SuaLopHoc", new { id = Model.MaLop})</button>
+<button>@Html.ActionLink("Xóa", "XoaLopHoc", new { id = Model.MaLop})</button>
+<button>@Html.ActionLink("Trở về","Index","LopHoc")</button>
+
+<br /><br />
+
+
+

@@ -1,0 +1,56 @@
+﻿@model TruongCNTP.Models.SINHVIEN
+@{
+    ViewBag.Title = "Thêm thông tin sinh viên";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">THÊM MỚI SINH VIÊN</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <table class="table" border="0" align="center" style="text-align:left">
+        <tr>
+            <td style="font-weight:bold">Tên SV:</td>
+            <td style="text-align:left">@Html.TextBox("tenSV")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mã SV:</td>
+            <td style="text-align:left">@Html.TextBox("maSV")</td>@ViewData["Loi2"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">SĐT:</td>
+            <td style="text-align:left">@Html.TextBox("SDT")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Địa chỉ:</td>
+            <td style="text-align:left">@Html.TextBox("diaChi")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Email:</td>
+            <td style="text-align:left">@Html.TextBox("email")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Năm sinh:</td>
+            <td style="text-align:left">@Html.TextBox("namSinh")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mật khẩu:</td>
+            <td style="text-align:left">@Html.TextBox("mk")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Nhập lại mật khẩu:</td>
+            <td style="text-align:left">@Html.TextBox("mk2")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mã lớp:</td>
+            <td style="text-align:left">@Html.DropDownList("MaLop")</td>@ViewData["Loi1"]
+        </tr>
+    </table>
+    <button type="submit">Tạo mới</button>
+    <button>@Html.ActionLink("Trở về","Index","SinhVien")</button>
+}
+
+
+

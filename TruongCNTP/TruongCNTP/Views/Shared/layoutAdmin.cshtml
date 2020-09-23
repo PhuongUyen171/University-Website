@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+</head>
+    @{
+        var ad = Session["admin"] as TruongCNTP.Models.GIAOVIEN;
+    }
+<link href="../../Content/css/bootstrap.min.css" rel="stylesheet" />
+<body>
+@*    <img src="../../Content/Image/header.png" width="100%" style="margin-top:60px"/>*@
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="../Home/Index">Xin chào, @ad.TenGV</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div style="color:white;font-size:18px" align="right">
+            @Html.ActionLink("Đăng xuất","DangNhap","GiangVien")
+        </div>
+        @*<div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Khoa<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lớp học<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Môn học<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Giáo viên<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sinh viên<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Điểm<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            
+        </div>*@
+    </nav>
+    <div style="margin-top:50px">
+        <div class="row">
+            <div class="col-lg-2 bg-dark">
+                <div class="list-group">
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý khoa","Index","Khoa")</div>
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý chương trình","Index","ChuongTrinh")</div>
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý giáo viên","GiaoVien","GiangVien")</div>
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý môn học","Index","MonHoc")</div>
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý điểm","Index","GiangVien")</div>
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý sinh viên","Index","SinhVien")</div>
+                    
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý lớp","Index","LopHoc")</div>
+                    <div class="list-group-item bg-dark">@Html.ActionLink("Quản lý khóa học","Index","KhoaHoc")</div>
+                </div>
+            </div>
+            <div class="col-lg-10 bg-light">
+                @RenderBody()
+            </div>
+        </div>
+        
+    </div>
+    <div class="bg-dark row" style="color:white;width:100%">
+        <div class="col-lg-6">
+            TRƯỜNG ĐH CÔNG NGHIỆP THỰC PHẨM TP.HCM
+            <p>Website thuộc bản quyền Trường Đại học Công nghiệp thực phẩm TP.HCM.</p>
+        </div>
+        <div class="col-lg-6">
+            LIÊN HỆ
+            <p>
+                <ul>
+                    <li>140 Lê Trọng Tấn, P. Tây Thạnh, Q. Tân Phú, Tp. HCM</li>
+                    <li>Tel: (08)38 161 673 - (08)38 163 319</li>
+                    <li>cntp@cntp.edu.vn</li>
+                    <li>www.hufi.edu.vn</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

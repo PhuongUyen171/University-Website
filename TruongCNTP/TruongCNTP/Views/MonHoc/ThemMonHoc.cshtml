@@ -1,0 +1,29 @@
+﻿@model TruongCNTP.Models.MONHOC
+@{
+    ViewBag.Title = "Thêm mới môn học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">THÊM MỚI MÔN HỌC</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <table class="table" border="0" align="center" style="text-align:left">
+        <tr>
+            <td style="font-weight:bold">Tên môn:</td>
+            <td style="text-align:left">@Html.TextBox("tenMH")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mã môn:</td>
+            <td style="text-align:left">@Html.TextBox("maMH")</td>@ViewData["Loi2"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mã khoa:</td>
+            <td style="text-align:left">@Html.DropDownList("maKhoa")</td>@ViewData["Loi3"]
+        </tr>
+    </table>
+    <button type="submit">Tạo mới</button>
+    <button>@Html.ActionLink("Trở về","Index","MonHoc")</button>
+}
+

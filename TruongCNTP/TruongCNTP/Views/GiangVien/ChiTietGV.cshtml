@@ -1,0 +1,43 @@
+﻿@model TruongCNTP.Models.GIAOVIEN
+@{
+    ViewBag.Title = "Thông tin chi tiết giáo viên";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">THÔNG TIN CHI TIẾT GIÁO VIÊN</h2>
+<br />
+<table class="table" border="0" align="center" style="text-align:left">
+    <tr>
+        <td ><b>Tên GV:</b> @Model.TenGV</td>
+        <td ><b>Mã GV:</b> @Model.MaGV</td>
+    </tr>
+    <tr>
+        <td><b>Mã môn học:</b> @Model.MaMH</td>
+        <td><b>Giới tính:</b> Nam</td>
+    </tr>
+    <tr>
+        <td><b>Ngày sinh:</b> 25/02/1976</td>
+        <td><b>Địa chỉ:</b> 817 Hồng Lạc</td>
+    </tr>
+    <tr>
+        <td><b>Email:</b> gvhufi@gmail.com</td>
+        <td><b>Quê quán:</b> Thừa Thiên Huế</td>
+    </tr>
+    <tr>
+        <td><b>Số CMND:</b> 025857829</td>
+        <td><b>Nơi cấp:</b> TP.HCM</td>
+    </tr>
+    <tr>
+        <td><b>Hệ số lương:</b> 2</td>
+        <td></td>
+    </tr>
+</table>
+@using (Html.BeginForm()){
+<button>@Html.ActionLink("Sửa", "SuaGV", new { id = Model.MaGV})</button>
+<button>@Html.ActionLink("Xóa", "XoaGV", new { id = Model.MaGV})</button>
+<button>@Html.ActionLink("Trở về","GiaoVien","GiangVien")</button>
+}
+<br /><br />
+

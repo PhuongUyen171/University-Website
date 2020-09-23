@@ -1,0 +1,14 @@
+Đã xong: gồm phần Index, chi tiết, sửa, thêm, xóa
+1. QL khoa
+2. QL chương trình
+3. QL giáo viên
+4. QL môn học
+5. QL sinh viên(chưa làm upload hình)
+6. QL khóa học
+7. QL lớp học
+
+Chưa xong:
+1. QL điểm
+2. Chưa kiểm tra xóa khóa ngoại
+3. Chưa thể hiện ra ngoài thiết kế
+4. Tìm kiếm
