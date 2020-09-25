@@ -1,0 +1,26 @@
+﻿@model TruongCNTP.Models.CHUONGTRINH
+@{
+    ViewBag.Title = "Thêm mới chương trình";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">THÊM MỚI CHƯƠNG TRÌNH</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <table class="table" border="0" align="center" style="text-align:left">
+        <tr>
+            <td style="font-weight:bold">Tên chương trình:</td>
+            <td style="text-align:left">@Html.TextBox("tenCT")</td>@ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mã chương trình:</td>
+            <td style="text-align:left">@Html.TextBox("maCT")</td>@ViewData["Loi2"]
+        </tr>
+    </table>
+    <button type="submit">Tạo mới</button>
+    <button>@Html.ActionLink("Trở về","Index","ChuongTrinh")</button>
+}
+
+

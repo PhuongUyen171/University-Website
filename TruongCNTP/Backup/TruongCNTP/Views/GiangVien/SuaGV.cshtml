@@ -1,0 +1,47 @@
+﻿@model TruongCNTP.Models.GIAOVIEN
+@{
+    ViewBag.Title = "Sửa thông tin chi tiết giáo viên";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">SỬA CHI TIẾT GIÁO VIÊN</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.MaGV)
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã GV: </td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaGV</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên GV:</td>
+            <td style="text-align:left">
+                @*@Html.EditorFor(m=>m.TENTL)
+                @Html.ValidationMessageFor(m=>m.TENTL)*@
+                @Html.TextBoxFor(m=>m.TenGV)@ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã môn học:</td>
+            <td style="text-align:left">
+                @*@Html.EditorFor(m=>m.TENTL)
+                @Html.ValidationMessageFor(m=>m.TENTL)*@
+                @Html.DropDownList("MaMonHoc")@ViewData["Loi2"]
+            </td>
+        </tr>
+        <td>
+            <button type="submit">Lưu</button>
+            <button>@Html.ActionLink("Trở về","GiaoVien","GiangVien")</button>
+        </td>
+        
+</table>
+}
+
+

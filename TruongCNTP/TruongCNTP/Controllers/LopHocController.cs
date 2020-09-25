@@ -52,7 +52,6 @@ namespace TruongCNTP.Controllers
                 l.MaKhoa = maKhoa;
                 l.MaKhoaHoc = maKH;
                 l.MaCT = maCt;
-                l.STT = Convert.ToInt32(stt);
                 data.LOPs.InsertOnSubmit(l);
                 data.SubmitChanges();
                 return RedirectToAction("Index", "LopHoc");

@@ -1,0 +1,31 @@
+﻿@using TruongCNTP.Models;
+@model IEnumerable<TruongCNTP.Models.KHOA>
+@{
+    ViewBag.Title = "Quản lý khoa";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">QUẢN LÝ KHOA</h2>
+<br />
+<table class="table" border="1" align="center">
+    <tr>
+        <th style="width:120px">Tên khoa</th>
+        <th style="width:100px">Mã khoa</th>
+        <th style="width:100px">Năm thành lập</th>
+        <th style="width:200px">Chọn chức năng</th>
+    </tr>
+    @foreach(var item in Model){
+    <tr>
+        <td>@Html.DisplayFor(m=>item.TenKhoa)</td>
+        <td>@Html.DisplayFor(m=>item.MaKhoa)</td>
+        <td>@Html.DisplayFor(m=>item.NamThanhLap)</td>
+        <td>
+            <button>@Html.ActionLink("Sửa", "SuaKhoa", new { id = item.MaKhoa })</button>
+            <button>@Html.ActionLink("Chi tiết", "ChiTietKhoa", new {id=item.MaKhoa })</button>
+            <button>@Html.ActionLink("Xóa", "XoaKhoa", new { id=item.MaKhoa})</button>
+        </td>
+    </tr>
+    }
+</table>
+<button>@Html.ActionLink("Tạo mới","ThemKhoa")</button><br /><br />

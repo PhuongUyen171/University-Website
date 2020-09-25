@@ -1,0 +1,55 @@
+﻿@model TruongCNTP.Models.LOP
+@{
+    ViewBag.Title = "Sửa thông tin lớp học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">SỬA THÔNG TIN LỚP HỌC</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.MaLop)
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã lớp: </td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaLop</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên lớp:</td>
+            <td style="text-align:left">
+                @Html.TextBoxFor(m=>m.TenLop)@ViewData["Loi1"]
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã khoa:</td>
+            <td style="text-align:left">
+                @Html.DropDownList("MaKhoa")
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã khóa học:</td>
+            <td style="text-align:left">
+                @Html.DropDownList("MaKhoaHoc")
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã chương trình:</td>
+            <td style="text-align:left">
+                @Html.DropDownList("MaCT")
+            </td>
+        </tr>
+        <td>
+            <button type="submit">Lưu</button>
+            <button>@Html.ActionLink("Trở về","Index","LopHoc")</button>
+        </td>
+        
+</table>
+}
+
+

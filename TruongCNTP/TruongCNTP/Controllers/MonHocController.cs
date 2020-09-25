@@ -41,7 +41,6 @@ namespace TruongCNTP.Controllers
             {
                 k.MaMH = ma;
                 k.TenMH = ten;
-                k.MaKhoa = makhoa;
                 data.MONHOCs.InsertOnSubmit(k);
                 data.SubmitChanges();
                 return RedirectToAction("Index", "MonHoc");
@@ -88,7 +87,6 @@ namespace TruongCNTP.Controllers
             else
             {
                 sua.TenMH = ten;
-                sua.MaKhoa = makhoa;
                 UpdateModel(sua);
                 data.SubmitChanges();
                 return RedirectToAction("Index", "MonHoc");

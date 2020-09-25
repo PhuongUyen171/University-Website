@@ -57,16 +57,25 @@ namespace TruongCNTP.Controllers
         [HttpPost, ActionName("XoaKhoa")]
         public ActionResult XacNhanXoa(string id)
         {
-            KHOA kh = data.KHOAs.SingleOrDefault(n => n.MaKhoa == id);
-            ViewBag.Makhoa = kh.MaKhoa;
-            if (kh == null)
+            try
+            {
+                KHOA kh = data.KHOAs.SingleOrDefault(n => n.MaKhoa == id);
+                ViewBag.Makhoa = kh.MaKhoa;
+                if (kh == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                data.KHOAs.DeleteOnSubmit(kh);
+                data.SubmitChanges();
+                return RedirectToAction("Index", "Khoa");
+            }
+            catch (Exception)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            data.KHOAs.DeleteOnSubmit(kh);
-            data.SubmitChanges();
-            return RedirectToAction("Index", "Khoa");
+            
         }
         public ActionResult SuaKhoa(string id)
         {

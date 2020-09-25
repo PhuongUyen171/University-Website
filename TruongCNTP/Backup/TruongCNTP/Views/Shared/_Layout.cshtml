@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @*<link href="../../Content/css/Site.css" rel="stylesheet" type="text/css" />*@
+    @*<script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>*@
+    <link href="../../Content/css/cssMain.css" rel="stylesheet" />
+    <link href="../../Content/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+        <a class="navbar-brand" href="../Home/Index">ĐẠI HỌC CNTP TP.HCM</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../Home/GioiThieu">Giới thiệu<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Đào tạo<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Home/TuyenSinh">Tuyển sinh<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../GiangVien/Index">Giảng viên<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sinh viên<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Việc làm<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Home/TinTuc">Tin tức<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Home/LienHe">Liên hệ<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            @*@Html.ActionLink("Giảng viên","GiangVien","NguoiDung") | @Html.ActionLink("Sinh viên","SinhVien","NguoiDung") | @Html.ActionLink("Cựu sinh viên","CuuSinhVien","NguoiDung")*@
+            
+        </div>
+    </nav>
+    @RenderBody()
+    <div class="footer bg-dark" style="color:white;padding-top:0">
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Kết nối với chúng tôi</h2>
+                <p>Kết nối cùng nhà trường trên mạng xã hội để biết thêm nhiều thông tin về đào tạo, tuyển sinh, thể thao và các hoạt động ngoại khóa khác</p>
+            </div>
+            <div class="col-lg-2">
+                <ul>HỖ TRỢ
+                    <li>Trang chủ</li>
+                    <li>Giới thiệu</li>
+                    <li>Đào tạo</li>
+                    <li>Tin tức</li>
+                    <li>Tuyển sinh</li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <ul>ĐƠN VỊ TRỰC THUỘC
+                    <li>Khoa - trường</li>
+                    <li>Viện - trung tâm</li>
+                    <li>Phòng - ban</li>
+                </ul>
+            </div>
+       
+            <div class="col-lg-4">
+            <ul>ĐẠI HỌC CÔNG NGHIỆP THỰC PHẨM
+                
+                <li>140 Lê Trọng Tấn, phường Tây Thạnh, quận Tân Phú, TP.HCM</li>
+                <li>(028)38161673 - (028)38163319</li>
+                <li>sinhvien.hufi.edu.vn</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    <div style="background-color:black;color:white;height:30px;width:100%;text-align:center">Copyright 2020 Đại học Công nghiệp Thực phẩm HUFI.</div>
+</body>
+
+</html>

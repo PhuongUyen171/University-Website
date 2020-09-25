@@ -19,3 +19,27 @@ C:\Users\Dell\Desktop\IT\Tet2020\WebTinTuc\TruongCNTP\TruongCNTP\bin\System.Web.
 C:\Users\Dell\Desktop\IT\Tet2020\WebTinTuc\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.dll
 C:\Users\Dell\Desktop\IT\Tet2020\WebTinTuc\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.pdb
 C:\Users\Dell\Desktop\IT\Tet2020\WebTinTuc\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\TruongCNTP.dll.config
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\TruongCNTP.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\TruongCNTP.pdb
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\EntityFramework.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.Helpers.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.Mvc.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.Providers.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.Razor.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.WebPages.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.WebPages.Razor.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\EntityFramework.xml
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.Helpers.xml
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.Mvc.xml
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.Razor.xml
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.WebPages.xml
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\bin\System.Web.WebPages.Razor.xml
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.csproj.CopyComplete
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.dll
+C:\Users\PC\Desktop\University Website\TruongCNTP\TruongCNTP\obj\Debug\TruongCNTP.pdb

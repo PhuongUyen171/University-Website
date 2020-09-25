@@ -41,10 +41,10 @@ namespace TruongCNTP.Controllers
         {
             var ten = c["tenCT"];
             var ma = c["maCT"];
-            if (string.IsNullOrEmpty(ten))
-                ViewData["Loi1"] = "Tên chương trình không được để trống";
-            else if (string.IsNullOrEmpty(ma))
-                ViewData["Loi2"] = "Mã chương trình không được để trống";
+            if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(ma))
+                ViewData["Loi1"] = "Thông tin không được để trống.";
+            else if (data.CHUONGTRINHs.Where(t=>t.MaCT==ma).Count()!=0)
+                ViewData["Loi1"] = "Mã chương trình đã tồn tại.";
             else
             {
                 ct.MaCT = ma;
@@ -64,16 +64,25 @@ namespace TruongCNTP.Controllers
         [HttpPost, ActionName("XoaChuongTrinh")]
         public ActionResult XacNhanXoa(string id)
         {
-            CHUONGTRINH ct = data.CHUONGTRINHs.SingleOrDefault(n => n.MaCT == id);
-            ViewBag.Mact = ct.MaCT;
-            if (ct == null)
+            try
             {
-                Response.StatusCode = 404;
+                CHUONGTRINH ct = data.CHUONGTRINHs.SingleOrDefault(n => n.MaCT == id);
+                ViewBag.Mact = ct.MaCT;
+                if (ct == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                data.CHUONGTRINHs.DeleteOnSubmit(ct);
+                data.SubmitChanges();
+                return RedirectToAction("Index", "ChuongTrinh");
+            }
+            catch (Exception)
+            {
+                Response.StatusCode=404;
                 return null;
             }
-            data.CHUONGTRINHs.DeleteOnSubmit(ct);
-            data.SubmitChanges();
-            return RedirectToAction("Index", "ChuongTrinh");
+            
         }
         public ActionResult SuaChuongTrinh(string id)
         {

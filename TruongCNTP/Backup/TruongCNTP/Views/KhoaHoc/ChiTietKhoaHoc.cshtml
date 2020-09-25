@@ -1,0 +1,31 @@
+﻿@model TruongCNTP.Models.KHOAHOC
+@{
+    ViewBag.Title = "Thông tin chi tiết khóa học";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">THÔNG TIN CHI TIẾT KHÓA HỌC</h2>
+<br />
+<table class="table" border="0" align="center" style="text-align:left">
+    <tr>
+        <td style="font-weight:bold">Mã khóa học:</td>
+        <td style="text-align:left">@Model.MaKhoaHoc</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Năm bắt đầu:</td>
+        <td style="text-align:left">@Model.NamBatDau</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Năm kết thúc:</td>
+        <td style="text-align:left">@Model.NamKetThuc</td>
+    </tr>
+    
+</table>
+<button>@Html.ActionLink("Sửa", "SuaKhoaHoc", new { id = Model.MaKhoaHoc})</button>
+<button>@Html.ActionLink("Xóa", "XoaKhoaHoc", new { id = Model.MaKhoaHoc})</button>
+<button>@Html.ActionLink("Trở về","Index","KhoaHoc")</button>
+
+<br /><br />
+
+

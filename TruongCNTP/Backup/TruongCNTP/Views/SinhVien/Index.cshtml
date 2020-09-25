@@ -1,0 +1,29 @@
+﻿@using TruongCNTP.Models;
+@model IEnumerable<TruongCNTP.Models.SINHVIEN>
+@{
+    ViewBag.Title = "Quản lý sinh viên";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">QUẢN LÝ SINH VIÊN</h2>
+<br />
+<table class="table" border="1" align="center">
+    <tr>
+        <th style="width:120px">Tên sinh viên</th>
+        <th style="width:100px">Mã sinh viên</th>
+        <th style="width:200px">Chọn chức năng</th>
+    </tr>
+    @foreach(var item in Model){
+    <tr>
+        <td>@Html.DisplayFor(m=>item.TenSV)</td>
+        <td>@Html.DisplayFor(m=>item.MaSV)</td>
+        <td>
+            <button>@Html.ActionLink("Sửa", "SuaSinhVien", new { id = item.MaSV })</button>
+            <button>@Html.ActionLink("Chi tiết", "ChiTietSinhVien", new { id = item.MaSV })</button>
+            <button>@Html.ActionLink("Xóa", "XoaSinhVien", new { id=item.MaSV})</button>
+        </td>
+    </tr>
+    }
+</table>
+<button>@Html.ActionLink("Tạo mới","ThemSinhVien")</button><br /><br />

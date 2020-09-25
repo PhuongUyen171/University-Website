@@ -75,7 +75,6 @@ namespace TruongCNTP.Controllers
             {
                 gv.MaGV = magv;
                 gv.TenGV = ten;
-                gv.MaMH = mamh;
                 data.GIAOVIENs.InsertOnSubmit(gv);
                 data.SubmitChanges();
                 return RedirectToAction("GiaoVien", "GiangVien");
@@ -122,7 +121,6 @@ namespace TruongCNTP.Controllers
             else
             {
                 sua.TenGV = ten;
-                sua.MaMH = mamh;
                 UpdateModel(sua);
                 data.SubmitChanges();
                 return RedirectToAction("GiaoVien", "GiangVien");

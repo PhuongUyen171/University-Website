@@ -1,0 +1,33 @@
+﻿@using TruongCNTP.Models;
+@model IEnumerable<TruongCNTP.Models.CHUONGTRINH>
+@{
+    ViewBag.Title = "Quản lý chương trình";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+<link href="../../Content/css/cssMain.css" rel="stylesheet" />
+<h2 style="color:red;font-size:30px;text-align:center;margin-top:40px">QUẢN LÝ CHƯƠNG TRÌNH</h2>
+<br />
+<form align="right">
+    <input type="text" name="tim" placeholder="Nhập chương trình bạn muốn tìm" />
+    <button type="submit">Search</button>
+</form>
+<br />
+<table class="table" border="1" align="center">
+    <tr>
+        <th style="width:120px">Tên chương trình </th>
+        <th style="width:100px">Mã chương trình</th>
+        <th style="width:200px">Chọn chức năng</th>
+    </tr>
+    @foreach(var item in Model){
+    <tr>
+        <td>@Html.DisplayFor(m=>item.TenCT)</td>
+        <td>@Html.DisplayFor(m=>item.MaCT)</td>
+        <td>
+            <button>@Html.ActionLink("Sửa", "SuaChuongTrinh", new { id = item.MaCT })</button>
+            <button>@Html.ActionLink("Chi tiết", "ChiTietChuongTrinh", new { id=item.MaCT})</button>
+            <button>@Html.ActionLink("Xóa", "XoaChuongTrinh", new { id=item.MaCT})</button>
+        </td>
+    </tr>
+    }
+</table>
+<button>@Html.ActionLink("Tạo mới","ThemChuongTrinh")</button><br /><br />
