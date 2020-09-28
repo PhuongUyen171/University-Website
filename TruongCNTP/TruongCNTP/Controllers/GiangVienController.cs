@@ -57,7 +57,7 @@ namespace TruongCNTP.Controllers
         }
         public ActionResult ThemGV()
         {
-            ViewBag.MaMonHoc = new SelectList(data.MONHOCs.ToList().OrderBy(n => n.TenMH), "MaMH", "TenMH");
+            ViewBag.MaKhoa = new SelectList(data.KHOAs.ToList().OrderBy(n => n.TenKhoa), "MaKhoa", "TenKhoa");
             return View();
         }
         [HttpPost]
@@ -66,15 +66,18 @@ namespace TruongCNTP.Controllers
             ViewBag.MaMonHoc = new SelectList(data.MONHOCs.ToList().OrderBy(n => n.TenMH), "MaMH", "TenMH");
             var ten = c["tenGV"];
             var magv = c["maGV"];
-            var mamh = c["MaMonHoc"];
-            if (string.IsNullOrEmpty(ten))
-                ViewData["Loi1"] = "Tên khoa không được để trống";
-            else if (string.IsNullOrEmpty(magv))
-                ViewData["Loi2"] = "Mã giáo viên không được để trống";
+            var makh = c["MaKhoa"];
+            var hv = c["hocVi"];
+            if (string.IsNullOrEmpty(ten)|| string.IsNullOrEmpty(magv)|| string.IsNullOrEmpty(makh)|| string.IsNullOrEmpty(hv))
+                ViewData["Loi1"] = "Thông tin giáo viên không được để trống";
+            else if (data.GIAOVIENs.Where(t=>t.MaGV==magv).Count()!=0)
+                ViewData["Loi1"] = "Mã giáo viên đã tồn tại";
             else
             {
                 gv.MaGV = magv;
                 gv.TenGV = ten;
+                gv.ChuyenNganh = makh;
+                gv.HocVi = hv;
                 data.GIAOVIENs.InsertOnSubmit(gv);
                 data.SubmitChanges();
                 return RedirectToAction("GiaoVien", "GiangVien");
@@ -94,8 +97,7 @@ namespace TruongCNTP.Controllers
             ViewBag.Magv = gv.MaGV;
             if (gv == null)
             {
-                Response.StatusCode = 404;
-                return null;
+                return RedirectToAction("KhongTheXoa", "Home");
             }
             data.GIAOVIENs.DeleteOnSubmit(gv);
             data.SubmitChanges();
@@ -103,7 +105,7 @@ namespace TruongCNTP.Controllers
         }
         public ActionResult SuaGV(string id)
         {
-            ViewBag.MaMonHoc = new SelectList(data.MONHOCs.ToList().OrderBy(n => n.TenMH), "MaMH", "TenMH");
+            ViewBag.MaKhoa = new SelectList(data.KHOAs.ToList().OrderBy(n => n.TenKhoa), "MaKhoa", "TenKhoa");
             var sua = data.GIAOVIENs.First(m => m.MaGV == id);
             return View(sua);
         }
@@ -111,16 +113,19 @@ namespace TruongCNTP.Controllers
         [ValidateInput(false)]
         public ActionResult SuaGV(string id, FormCollection c)
         {
-            ViewBag.MaMonHoc = new SelectList(data.MONHOCs.ToList().OrderBy(n => n.TenMH), "MaMH", "TenMH");
+            ViewBag.MaKhoa = new SelectList(data.KHOAs.ToList().OrderBy(n => n.TenKhoa), "MaKhoa", "TenKhoa");
             var sua = data.GIAOVIENs.First(m => m.MaGV == id);
             var ten = c["tenGV"];
-            var mamh = c["MaMonHoc"];
+            var makh = c["MaKhoa"];
+            var hv = c["hocVi"];
             sua.MaGV = id;
             if (string.IsNullOrEmpty(ten))
-                ViewData["Loi1"] = "Tên giáo viên không được để trống.";
+                ViewData["Loi1"] = "Thông tin giáo viên không được để trống.";
             else
             {
                 sua.TenGV = ten;
+                sua.HocVi = hv;
+                sua.ChuyenNganh = makh;
                 UpdateModel(sua);
                 data.SubmitChanges();
                 return RedirectToAction("GiaoVien", "GiangVien");

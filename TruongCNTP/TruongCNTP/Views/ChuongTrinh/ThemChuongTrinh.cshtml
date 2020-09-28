@@ -12,15 +12,16 @@
     <table class="table" border="0" align="center" style="text-align:left">
         <tr>
             <td style="font-weight:bold">Tên chương trình:</td>
-            <td style="text-align:left">@Html.TextBox("tenCT")</td>@ViewData["Loi1"]
+            <td style="text-align:left">@Html.TextBox("tenCT")</td>
         </tr>
         <tr>
             <td style="font-weight:bold">Mã chương trình:</td>
-            <td style="text-align:left">@Html.TextBox("maCT")</td>@ViewData["Loi2"]
+            <td style="text-align:left">@Html.TextBox("maCT")</td>
         </tr>
     </table>
     <button type="submit">Tạo mới</button>
     <button>@Html.ActionLink("Trở về","Index","ChuongTrinh")</button>
+    <div style="color:red">@ViewData["Loi1"]</div>
 }
 
 

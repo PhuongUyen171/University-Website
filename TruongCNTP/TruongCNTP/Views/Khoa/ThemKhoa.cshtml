@@ -11,19 +11,20 @@
     <table class="table" border="0" align="center" style="text-align:left">
         <tr>
             <td style="font-weight:bold">Tên khoa:</td>
-            <td style="text-align:left">@Html.TextBox("tenKhoa")</td>@ViewData["Loi1"]
+            <td style="text-align:left">@Html.TextBox("tenKhoa")</td>
         </tr>
         <tr>
             <td style="font-weight:bold">Mã khoa:</td>
-            <td style="text-align:left">@Html.TextBox("maKhoa")</td>@ViewData["Loi2"]
+            <td style="text-align:left">@Html.TextBox("maKhoa")</td>
         </tr>
         <tr>
             <td style="font-weight:bold">Năm thành lập:</td>
-            <td style="text-align:left">@Html.TextBox("nam")</td>@ViewData["Loi3"]
+            <td style="text-align:left">@Html.TextBox("nam")</td>
         </tr>
     </table>
     <button type="submit">Tạo mới</button>
-    <button>@Html.ActionLink("Trở về","Index","Khoa")</button>
+    <button>@Html.ActionLink("Trở về", "Index", "Khoa")</button><br />
+    <div style="color:red">@ViewData["Loi1"]</div>
 }
 
 

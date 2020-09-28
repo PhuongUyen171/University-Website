@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+@{
+    ViewBag.Title = "Lỗi không thể xóa";
+    Layout = "";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lỗi: Không thể xóa</title>
+</head>
+<body>
+    <div >
+        <table align="center">
+            <tr>
+                <td style="color:red;font-size:16px">Không thể xóa vì bị trùng khóa ngoại</td>
+            </tr>
+            <tr>@Html.ActionLink("Trở về", "Index", "GiangVien")</tr>
+        </table>
+    </div>
+    
+</body>
+</html>

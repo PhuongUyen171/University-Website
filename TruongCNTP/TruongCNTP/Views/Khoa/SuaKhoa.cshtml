@@ -24,7 +24,7 @@
             <td style="text-align:left">
                 @*@Html.EditorFor(m=>m.TENTL)
                 @Html.ValidationMessageFor(m=>m.TENTL)*@
-                @Html.TextBoxFor(m=>m.TenKhoa)@ViewData["Loi1"]
+                @Html.TextBoxFor(m=>m.TenKhoa)
             </td>
         </tr>
         <tr>
@@ -32,14 +32,16 @@
             <td style="text-align:left">
                 @*@Html.EditorFor(m=>m.TENTL)
                 @Html.ValidationMessageFor(m=>m.TENTL)*@
-                @Html.TextBoxFor(m=>m.NamThanhLap)@ViewData["Loi2"]
+                @Html.TextBoxFor(m=>m.NamThanhLap)
             </td>
         </tr>
-        <td>
-            <button type="submit">Lưu</button>
-            <button>@Html.ActionLink("Trở về","Index","Khoa")</button>
-        </td>
-        
+        <tr>
+            <td colspan="2">
+                <button type="submit">Lưu</button>
+                <button>@Html.ActionLink("Trở về", "Index", "Khoa")</button>
+            </td>
+        </tr>
+        <tr><td colspan="2" style="color:red">@ViewData["Loi1"]</td></tr>
 </table>
 }
 

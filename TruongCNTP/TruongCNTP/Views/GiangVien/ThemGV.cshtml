@@ -9,21 +9,26 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-    <table class="table" border="0" align="center" style="text-align:left">
-        <tr>
-            <td style="font-weight:bold">Tên giáo viên:</td>
-            <td style="text-align:left">@Html.TextBox("tenGV")</td>@ViewData["Loi1"]
-        </tr>
-        <tr>
-            <td style="font-weight:bold">Mã giáo viên:</td>
-            <td style="text-align:left">@Html.TextBox("maGV")</td>@ViewData["Loi2"]
-        </tr>
-        <tr>
-            <td style="font-weight:bold">Mã môn học:</td>
-            <td style="text-align:left">@Html.DropDownList("MaMonHoc")</td>@ViewData["Loi3"]
-        </tr>
-    </table>
+<table class="table" border="0" align="center" style="text-align:left">
+    <tr>
+        <td style="font-weight:bold">Tên giáo viên:</td>
+        <td style="text-align:left">@Html.TextBox("tenGV")</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Mã giáo viên:</td>
+        <td style="text-align:left">@Html.TextBox("maGV")</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Chuyên ngành:</td>
+        <td style="text-align:left">@Html.DropDownList("MaKhoa")</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Học vị:</td>
+        <td style="text-align:left">@Html.TextBox("hocVi")</td>
+    </tr>
+</table>
     <button type="submit">Tạo mới</button>
     <button>@Html.ActionLink("Trở về","GiaoVien","GiangVien")</button>
+    <div style="color:red">@ViewData["Loi1"]</div>
 }
 

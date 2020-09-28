@@ -12,18 +12,15 @@
     <table class="table" border="0" align="center" style="text-align:left">
         <tr>
             <td style="font-weight:bold">Tên môn:</td>
-            <td style="text-align:left">@Html.TextBox("tenMH")</td>@ViewData["Loi1"]
+            <td style="text-align:left">@Html.TextBox("tenMH")</td>
         </tr>
         <tr>
             <td style="font-weight:bold">Mã môn:</td>
-            <td style="text-align:left">@Html.TextBox("maMH")</td>@ViewData["Loi2"]
-        </tr>
-        <tr>
-            <td style="font-weight:bold">Mã khoa:</td>
-            <td style="text-align:left">@Html.DropDownList("maKhoa")</td>@ViewData["Loi3"]
+            <td style="text-align:left">@Html.TextBox("maMH")</td>
         </tr>
     </table>
     <button type="submit">Tạo mới</button>
-    <button>@Html.ActionLink("Trở về","Index","MonHoc")</button>
+    <button>@Html.ActionLink("Trở về", "Index", "MonHoc")</button>
+    <div style="color:red">@ViewData["Loi1"]</div>
 }
 

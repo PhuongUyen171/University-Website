@@ -12,8 +12,8 @@
     <legend><font color="green">Chắc chắn xóa chưa?<br />Hãy đảm bảo rằng khoa được xóa đang rỗng!</font></legend>
     <div class="display-label">Mã GV: @Model.MaGV</div>
     <div class="display-label">Tên GV: @Model.TenGV</div>
-    <div class="display-label">Mã môn học: @Model.MaMH</div>
-    <div class="display-label">Giới tính: Nam </div>
+    <div class="display-label">Chuyên ngành: @Model.ChuyenNganh</div>
+    <div class="display-label">Học vị: @Model.HocVi</div>
     <div class="display-label">Ngày sinh: 25/02/1976</div>
     <div class="display-label">Địa chỉ: 817 Hồng Lạc</div>
     <div class="display-label">Số CMND: 025857829</div>
@@ -24,6 +24,6 @@
 </fieldset>
 @using (Html.BeginForm())
 {
-    <button type="submit">Xóa SV</button>
+    <button type="submit">Xóa giáo viên này</button>
     <button>@Html.ActionLink("Trở về","GiaoVien","GiangVien")</button>
 }

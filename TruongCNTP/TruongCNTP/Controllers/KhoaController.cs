@@ -31,20 +31,26 @@ namespace TruongCNTP.Controllers
             var ten = c["tenKhoa"];
             var ma = c["maKhoa"];
             var nam = c["nam"];
-            if (string.IsNullOrEmpty(ten))
-                ViewData["Loi1"] = "Tên khoa không được để trống";
-            else if(string.IsNullOrEmpty(ma))
-                ViewData["Loi2"] = "Mã không được để trống";
-            else if (string.IsNullOrEmpty(ma))
-                ViewData["Loi3"] = "Năm thành lập không được để trống";
+            if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(ma)|| string.IsNullOrEmpty(nam))
+                ViewData["Loi1"] = "Thông tin khoa không được để trống";
+            else if(data.KHOAs.FirstOrDefault(t=>t.MaKhoa==ma)!=null)
+                ViewData["Loi1"] = "Mã khoa đã bị trùng. Vui lòng nhập mã khác";
             else
             {
-                k.MaKhoa = ma;
-                k.TenKhoa = ten;
-                k.NamThanhLap = Convert.ToInt32(nam);
-                data.KHOAs.InsertOnSubmit(k);
-                data.SubmitChanges();
-                return RedirectToAction("Index","Khoa");
+                try
+                {
+                    k.MaKhoa = ma;
+                    k.TenKhoa = ten;
+                    k.NamThanhLap = Convert.ToInt32(nam);
+                    data.KHOAs.InsertOnSubmit(k);
+                    data.SubmitChanges();
+                    return RedirectToAction("Index", "Khoa");
+                }
+                catch (Exception)
+                {
+                    ViewData["Loi1"] = "Năm thành lập của khoa phải là kí tự số.";
+                }
+                
             }
             return this.ThemKhoa();
         }
@@ -72,8 +78,9 @@ namespace TruongCNTP.Controllers
             }
             catch (Exception)
             {
-                Response.StatusCode = 404;
-                return null;
+                //Response.StatusCode = 404;
+                //return null;
+                return RedirectToAction("KhongTheXoa");
             }
             
         }
@@ -88,21 +95,32 @@ namespace TruongCNTP.Controllers
         {
             var sua = data.KHOAs.First(m => m.MaKhoa == id);
             var ten = c["tenKhoa"];
-            var nam=c["NamThanhLap"];
+            var nam = c["NamThanhLap"];
             sua.MaKhoa = id;
             if (string.IsNullOrEmpty(ten))
                 ViewData["Loi1"] = "Tên danh mục không được để trống.";
             else if(string.IsNullOrEmpty(nam))
-                ViewData["Loi2"] = "Năm thành lập không được để trống.";
+                ViewData["Loi1"] = "Năm thành lập không được để trống.";
             else
             {
-                sua.TenKhoa = ten;
-                sua.NamThanhLap = Convert.ToInt32(nam);
-                UpdateModel(sua);
-                data.SubmitChanges();
-                return RedirectToAction("Index", "Khoa");
+                try
+                {
+                    sua.TenKhoa = ten;
+                    sua.NamThanhLap = Convert.ToInt32(nam);
+                    UpdateModel(sua);
+                    data.SubmitChanges();
+                    return RedirectToAction("Index", "Khoa");
+                }
+                catch (Exception)
+                {
+                    ViewData["Loi1"] = "Năm thành lập phải nhập kí tự số";
+                }
             }
             return this.SuaKhoa(id);
+        }
+        public ActionResult KhongTheXoa()
+        {
+            return View();
         }
     }
 }

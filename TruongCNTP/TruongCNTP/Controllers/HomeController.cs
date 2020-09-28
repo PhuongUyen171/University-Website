@@ -41,5 +41,9 @@ namespace TruongCNTP.Controllers
         {
             return View();
         }
+        public ActionResult KhongTheXoa()
+        {
+            return View();
+        }
     }
 }

@@ -14,17 +14,6 @@ namespace TruongCNTP.Controllers
         public ActionResult Index()
         {
             var tc = from tt in data.CHUONGTRINHs select tt;
-            //if (string.IsNullOrEmpty(tim))
-            //    tc = tc.Where(m => m.TenCT.Contains(tim));
-            //List<CHUONGTRINH> ds = new List<CHUONGTRINH>();
-            //foreach (var item in tc)
-            //{
-            //    CHUONGTRINH t = new CHUONGTRINH();
-            //    t.TenCT = item.TenCT;
-            //    t.MaCT = item.MaCT;
-            //    ds.Add(t);
-            //}
-            
             return View(tc);
         }
         public ActionResult ChiTietChuongTrinh(string id)
@@ -41,6 +30,7 @@ namespace TruongCNTP.Controllers
         {
             var ten = c["tenCT"];
             var ma = c["maCT"];
+
             if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(ma))
                 ViewData["Loi1"] = "Thông tin không được để trống.";
             else if (data.CHUONGTRINHs.Where(t=>t.MaCT==ma).Count()!=0)
@@ -79,14 +69,12 @@ namespace TruongCNTP.Controllers
             }
             catch (Exception)
             {
-                Response.StatusCode=404;
-                return null;
+                return RedirectToAction("KhongTheXoa","Home");
             }
             
         }
         public ActionResult SuaChuongTrinh(string id)
         {
-            //ViewBag.MaMonHoc = new SelectList(data.MONHOCs.ToList().OrderBy(n => n.TenMH), "MaMH", "TenMH");
             var sua = data.CHUONGTRINHs.First(m => m.MaCT == id);
             return View(sua);
         }

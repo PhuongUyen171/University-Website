@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     <table border="0" align="center">
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(m=>m.MaCT)
+        @Html.HiddenFor(m => m.MaCT)
         <tr>
             <td style="font-weight:bold;text-align:left">Mã chương trình: </td>
             <td style="text-align:left">
@@ -22,18 +22,13 @@
         <tr>
             <td style="font-weight:bold;text-align:left">Tên chương trình:</td>
             <td style="text-align:left">
-                @*@Html.EditorFor(m=>m.TENTL)
-                @Html.ValidationMessageFor(m=>m.TENTL)*@
-                @Html.TextBoxFor(m=>m.TenCT)@ViewData["Loi1"]
+                @Html.TextBoxFor(m => m.TenCT)
             </td>
         </tr>
-        
-        <td>
-            <button type="submit">Lưu</button>
-            <button>@Html.ActionLink("Trở về","Index","ChuongTrinh")</button>
-        </td>
-        
-</table>
+    </table>
+    <button type="submit">Lưu</button>
+    <button>@Html.ActionLink("Trở về", "Index", "ChuongTrinh")</button>
+    <div style="color:red">@ViewData["Loi1"]</div>
 }
 
 

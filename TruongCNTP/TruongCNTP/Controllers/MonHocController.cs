@@ -23,20 +23,17 @@ namespace TruongCNTP.Controllers
         }
         public ActionResult ThemMonHoc()
         {
-            ViewBag.Makhoa = new SelectList(data.KHOAs.ToList().OrderBy(n => n.TenKhoa), "MaKhoa", "TenKhoa");
             return View();
         }
         [HttpPost]
         public ActionResult ThemMonHoc(MONHOC k, FormCollection c)
         {
-            ViewBag.Makhoa = new SelectList(data.KHOAs.ToList().OrderBy(n => n.TenKhoa), "MaKhoa", "TenKhoa");
             var ten = c["tenMH"];
             var ma = c["maMH"];
-            var makhoa = c["maKhoa"];
-            if (string.IsNullOrEmpty(ten))
-                ViewData["Loi1"] = "Tên môn học không được để trống";
-            else if (string.IsNullOrEmpty(ma))
-                ViewData["Loi2"] = "Mã môn học không được để trống";
+            if (string.IsNullOrEmpty(ten)|| string.IsNullOrEmpty(ma))
+                ViewData["Loi1"] = "Thông tin môn học không được để trống";
+            else if (data.MONHOCs.Where(t=>t.MaMH==ma).Count()!=0)
+                ViewData["Loi1"] = "Mã môn học đã tồn tại.";
             else
             {
                 k.MaMH = ma;

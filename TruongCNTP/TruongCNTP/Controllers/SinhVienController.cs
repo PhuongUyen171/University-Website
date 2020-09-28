@@ -42,9 +42,9 @@ namespace TruongCNTP.Controllers
             var pass2 = c["mk2"];
 
             if (string.IsNullOrEmpty(ten))
-                ViewData["Loi1"] = "Tên chương trình không được để trống";
+                ViewData["Loi1"] = "Tên sinh viên không được để trống";
             else if (string.IsNullOrEmpty(ma))
-                ViewData["Loi2"] = "Mã chương trình không được để trống";
+                ViewData["Loi2"] = "Mã sinh viên không được để trống";
             else
             {
                 ct.MaSV = ma;
@@ -96,7 +96,7 @@ namespace TruongCNTP.Controllers
             var pass1 = c["mk"];
             sua.MaSV = id;
             if (string.IsNullOrEmpty(ten))
-                ViewData["Loi1"] = "Tên chương trình không được để trống.";
+                ViewData["Loi1"] = "Tên sinh viên không được để trống.";
             else
             {
                 sua.TenSV = ten;
